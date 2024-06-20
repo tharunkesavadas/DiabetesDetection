@@ -1,0 +1,554 @@
+ {% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>Diabetes Prediction System</title>
+    <!--<meta charset="utf-8" />-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="shortcut icon" type="image/png" href="image/favicons.png" />-->
+    <style type=text/css>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+ @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+ html {
+     scroll-behavior: smooth;
+ }
+
+ body {
+     margin: 0;
+     font-family: 'Poppins', sans-serif;
+ }
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+ }
+
+ .container {
+     max-width: 1140px;
+     margin: auto;
+ }
+
+ .row {
+     display: flex;
+     flex-wrap: wrap;
+ }
+ /*header*/
+ header {
+     position: fixed;
+     left: 0px;
+     right: 0px;
+     background-color: #73D7FF;
+     /*border-bottom: 1px solid #b4b3b3;*/
+     padding: 0px 15px;
+     z-index: 10;
+     display:inline;
+
+ }
+
+ header.fixed {
+     background-color: #d6cece;
+     position: fixed;
+     animation: fixHeader .5s ease;
+     opacity: 0;
+ }
+
+ @keyframes fixHeader {
+     0% {
+         transform: translate(-100%);
+     }
+     100% {
+         transform: translate(-0%);
+     }
+ }
+
+ header .row {
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ header .diabetes a {
+     text-decoration: none;
+     font-size: 22px;
+     font-weight: 600;
+     color: #000000;
+     text-transform: uppercase;
+     position: relative;
+     padding:-1px;
+     margin:0px;
+ }
+ header .diabetes a:hover {
+        color: white !important;
+        }
+
+ header.fixed .diabetes a {
+     color: #000000;
+ }
+
+ header .diabetes a::before {
+     content: '';
+     height: 3px;
+     background-color: #000000;
+     width: 100%;
+     position: relative;
+     left: 0px;
+     bottom: 0px;
+
+ }
+
+ header .navbar ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ header .navbar ul li {
+     display: inline-block;
+     margin-left: 25px;
+ }
+
+ header .navbar ul li a {
+     font-size: 15px;
+     text-decoration: none;
+     line-height: 72px;
+     color: #000000;
+     display: block;
+     font-weight: 600;
+     position: relative;
+ }
+
+ header .fixed .navbar ul li a {
+     color: #000000;
+ }
+
+ header .navbar ul li a::before {
+     content: '';
+     height: 3px;
+     background-color: #d6cece;
+     width: 0%;
+     position: absolute;
+     right: 0px;
+     bottom: -1px;
+     transition: all .5s ease;
+ }
+
+ header .fixed .navbar ul li a::before {
+     background-color: #000000;
+ }
+
+ header .navbar ul li a:hover::before {
+     width: 100%;
+     left: 0;
+     color: white !important;
+ }
+header li a:hover {
+        color: white !important;
+        }
+ /*home*/
+
+ .home {
+     min-height: 100vh;
+     background-image: url("{% static 'mainprj/images/1.jpg'%}") ;
+     background-size: cover;
+     background-position: center;
+     padding: 15px;
+
+ }
+
+ .home .full-screen {
+     min-height: 100vh;
+ }
+
+ .home .home-content {
+     flex: 0 0 100%;
+     max-width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: flex-end;
+     left: 100px;
+     /*position: relative;*/
+     /*color: black*/
+     padding-bottom:250px;
+
+ }
+
+ .home .home-content .block {
+     flex: 0 0 75%;
+     max-width: 75%;
+     padding-left: 35px;
+     /*border-right: 5px solid black;*/
+     margin-top: 50px;
+     left: 90px;
+     position: relative;
+ }
+
+ .home .home-content .block h1 {
+     color: #000000;
+     font-size: 57px;
+     font-weight: 400;
+     margin: 0;
+     padding: 0;
+     margin-top:200px;
+     padding-bottom:40px;
+ }
+
+ .home .home-content .block h4 {
+     color: #eeeeee;
+     font-size: 20px;
+     font-weight: 500;
+     margin: 0;
+     padding: 0;
+ }
+ /*get started*/
+ input[type=submit]{
+        background-color:#73D7FF;
+        border:2px;
+        font-size:16px;
+        font-weight:bold;
+        color:black;
+        padding:16px 32px;
+        cursor:pointer;
+        margin-top:15px;
+
+    }
+    input[type=submit]:hover{
+        color:white;
+        cursor:pointer;
+    }
+
+ /*About*/
+
+ .about-us {
+     padding: 100px 15px;
+     background-color: #ffffff;
+ }
+
+ .about-us .section-title {
+     flex: 0 0 100%;
+     max-width: 100%;
+     margin-bottom: 40px;
+ }
+
+ .about-us .section-title h1 {
+     display: inline-block;
+     font-size: 35px;
+     text-transform: uppercase;
+     font-weight: 700;
+     color: #000000;
+     margin: 0 0 10px;
+     position: relative;
+     padding-bottom: 5px;
+ }
+
+ .about-us .section-title h1:before {
+     content: '';
+     left: 10%;
+     position: absolute;
+     height: 2px;
+     right: 20%;
+     background-color: rosybrown;
+     bottom: 0px;
+ }
+ /*.about-us .about-content {
+         background-color: red;
+     }*/
+
+ .about-us .about-content .text {
+     /*background-color: blue;*/
+     flex: 0 0 100;
+     max-width: 66.66%;
+     padding-left: 0px;
+ }
+
+ .about-us .about-content .text p {
+     font-size: 15px;
+     font-weight: 400;
+     /*font-family: 'Playfair Display', serif;*/
+     margin: 20px;
+     font-style: unset;
+
+ }
+ /* .about-us .section-title p {
+         display: block;
+     }*/
+
+ /*contact-us*/
+
+ .contact-us {
+     padding: 100px 15px;
+     background-color: #f5f8fd;
+ }
+
+ .contact-us .section-title h1 {
+     left: 10%;
+     position: relative;
+     font-size: 40px;
+     padding-bottom: 23px;
+     color: #454052;
+ }
+
+ .contact-us .contact-form {
+     background-color: #ffffff;
+     flex: 0 0 100%;
+     max-width: 100%;
+     padding: 50px;
+     border: 1px solid #eeeeee;
+ }
+
+ .contact-us .contact-form .text {
+     flex: 0 0 100%;
+     max-width: 100%;
+     padding-bottom: 20px;
+ }
+
+ .contact-us .contact-form .text h2 {
+     font-size: 26px;
+     font-weight: 600;
+     color: #000000;
+     margin: 0;
+     padding: 0;
+ }
+
+ .contact-us .contact-form .text p {
+     font-size: 15px;
+     font-weight: 400;
+     line-height: 24px;
+     color: #838383;
+     margin: 0px;
+ }
+
+ .contact-us .contact-form space-between {
+     justify-content: space-between;
+ }
+
+ .contact-us .contact-form .col-6 {
+     flex: 0 0 calc(50% - 20px);
+     max-width: calc(50% - 15px);
+ }
+
+ .contact-us .contact-form .col-12 {
+     flex: 0 0 100%;
+     max-width: 100%;
+ }
+
+ .contact-us .contact-form .form-control {
+     height: 45px;
+     width: 100%;
+     margin-bottom: 15px;
+     border: 1px solid #c3d4da;
+     padding: 6px 12px;
+     font-size: 14px;
+     font-weight: 400;
+     font-family: 'Poppins', sans-serif;
+ }
+
+ .contact-us .contact-form textarea.form-control {
+     height: 140px;
+ }
+
+ .contact-us .contact-form .form-control::placeholder {
+     color: #838383;
+ }
+
+ .contact-us .contact-form .button {
+     /*background-color: #d5d5d5;*/
+     padding: 10px;
+ }
+
+ .contact-us .contact-form .button a {
+     border-radius: 4px;
+     color: #ffffff;
+     /*border: 1px solid #ffffff;*/
+     padding: 12px 25px;
+     text-decoration: none;
+     /*display: inline-block;*/
+     font-size: 14px;
+     text-transform: uppercase;
+     font-weight: 600;
+     transition: all .5s ease;
+     background-color: rosybrown;
+     box-shadow: 0px 10px 15px #e7e7e7;
+ }
+
+ .contact-us .contact-form .button a:hover {
+     background-color: #000000;
+     color: #ffffff;
+ }
+ /*social media footer*/
+
+ footer {
+     padding: 80px 15px;
+     background-color: #454052;
+ }
+
+ footer .logo {
+     flex: 0 0 100%;
+     max-width: 100%;
+     text-align: center;
+     font-size: 45px;
+     color: #f1bbbd;
+     font-weight: 700;
+ }
+
+ footer .social {
+     flex: 0 0 100%;
+     max-width: 100%;
+     text-align: center;
+     padding-top: 15px;
+     color: #f5f8fd;
+ }
+
+ footer .social a {
+     color: #ffffff;
+     text-decoration: none;
+     display: inline-block;
+     margin: 15px 15px;
+     transition: all .5s ease;
+     text-decoration: none;
+ }
+
+ footer .social a:hover {
+     color: black;
+ }
+ /*copyrights*/
+
+ .copyright {
+     background-color: #454052;
+ }
+
+ .copyright p {
+     color: #cccbcb;
+     margin: 0;
+     text-align: center;
+     font-weight: 400;
+     font-size: 14px;
+ }
+
+ @media(max-width:991px) {
+     .home .home-content .block h1 {
+         font-size: 50px;
+     }
+ }
+ </style>
+
+</head>
+
+<body>
+    <!--Header section-->
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="diabetes">
+                    <a href="" class="logo">Diabetes Prediction System</a>
+                </div>
+                <div class="navbar">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="container">
+            <div class="row full-screen">
+                <div class="home-content">
+                    <div class="block">
+                        <div align='center'>
+                            <h1> DIABETES PREDICTION SYSTEM</h1>
+                             <form action="predict">
+                                 <input type="submit" value="Get started">
+                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About section-->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="row">
+                    <div class="section-title">
+                        <h1>About Us</h1>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="about-content">
+                    <div class="row">
+                        <div class="text">
+                            <p><strong>DiabetesPrediction System</strong> aims at predicting Diabetes at an Early stage, So that Early Diagnosis and necessary treatment would be possible.With the help of Diabetes Prediction System,a person can check his/her Diabetic condition and need not to visit a diagnostic center anymore,to get diagnosed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--contact section-->
+    <section class="contact-us" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="section-title text-center">
+                    <h1>Contact Us</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="contact-form">
+                    <div class="row">
+                        <div class="text">
+                            <h2>Drop Us a line</h2>
+                            <p>We are here to answer any question you may have</p>
+                        </div>
+                    </div>
+                    <div class="row space-between">
+                        <div class="col-6">
+                            <input type="text" class="form-control" name="" placeholder="Name">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="form-control" name="" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea class="form-control" placeholder="Your Comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="button text-center">
+                            <a href="">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--footer section-->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    Diabetes Prediction System
+                </div>
+                <div class="social">
+                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <section class="copyright">
+        <div class="container">
+            <p>© Copyright Diabetes Prediction System 2021. All Rights Reserved.</p>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    function validateForm() {
+    var a = document.forms["Form"]["n1"].value;
+    var b = document.forms["Form"]["n2"].value;
+    var c = document.forms["Form"]["n3"].value;
+    var d = document.forms["Form"]["n4"].value;
+    var e = document.forms["Form"]["n5"].value;
+    var f = document.forms["Form"]["n6"].value;
+    var g = document.forms["Form"]["n7"].value;
+    var h = document.forms["Form"]["n8"].value;
+
+
+    if (a == null || a == ""|| b==null || b==""|| c == null || c == ""||d == null || d == ""|| e == null || e == ""|| f == null || f == ""|| g == null || g == ""|| h == null || h == "") {
+      alert("Please Fill All Required Fields");
+      return false;
+    }
+  }
+
+
+    </script>
+
+    <title>Diabetes Prediction System</title>
+    <style>
+        body {
+
+            background-image:url("{% static 'mainprj/images/2.png'%}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: darkgray;
+
+        }
+        .main{
+            position: fixed;
+            top: 140px;
+            left: 410px;
+            width: 550px;
+            background-color:#ffffff;
+            border-radius: 10px;
+            align-items: center;
+            padding: 5%;
+        }
+        h1{
+            color: rgb(2, 1, 49);
+            font-size: 30px;
+            font-weight: bold;
+        }
+        input[type=submit]{
+            background-color: #4dc3ff;
+            border: 2px;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+
+     }
+    </style>
+</head>
+<body>
+
+
+    <!--<h1 align='center'>Welcome to the predict page</h1>-->
+
+<div align='center' class="main">
+    <h1>Please enter the following information:</h1>
+    <form action="result" name="Form" onsubmit="return validateForm()">
+        <style>
+            tr,td
+            {
+            width:150px;
+            text-align:center;
+            padding:5px;
+            }
+            input:invalid {
+    border: 3px solid red;
+}
+         </style>
+            <table>
+            <tr>
+                <td align="right">Pregnancies:</td>
+                <td align="left"><input type="text" name="n1" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Glucose:</td>
+                <td align="left"><input type="text" name="n2" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Bloodpressure:</td>
+                <td align="left"><input type="text" name="n3" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Skin Thickness:</td>
+                <td align="left"><input type="text" name="n4" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Insulin:</td>
+                <td align="left"><input type="text" name="n5" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">BMI:</td>
+                <td align="left"><input type="text" name="n6" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Diabetes Pedigree function:</td>
+                <td align="left"><input type="text" name="n7" pattern="[0.0-9.0]+"></td>
+            </tr>
+             <tr>
+                <td align="right">Age:</td>
+                <td align="left"><input type="text" name="n8" pattern="[0-9]+"></td>
+            </tr>
+
+        </table>
+        <input type="submit">
+    </form>
+    <p></p>
+    <h1>Result: {{result2}}</h1>
+</div>
+</body>
+</html>
